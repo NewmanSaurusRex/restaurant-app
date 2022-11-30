@@ -1,10 +1,6 @@
 import { menuArray } from "./data.js";
 
 const menuSection = document.getElementById("menu");
-const orderSection = document.getElementById("order");
-
-let cart = [];
-let total = 0;
 
 function getMenuItems(items) {
   let menuHTML = ``;
@@ -28,38 +24,3 @@ function render() {
 }
 
 render();
-
-document.addEventListener("click", function (e) {
-  if (e.target.dataset.add) {
-    let item = findItemID(e.target.dataset.add);
-    handleAddToCart(item);
-  }
-});
-
-function findItemID(itemID) {
-  let targetObj = menuArray.filter((item) => item.id == itemId)[0];
-  return targetObj;
-}
-
-function handleAddToCart(item) {
-  let cartHTML = `
-    <div class="cart-item">
-      <div class="cart-item-title">
-        <span>${item.name}</span>
-        <button class="remove-btn">Remove</button>
-      </div>
-      <div id="cart-item-price" class="price">
-        <span>$${item.price}</span>
-      </div>
-    </div>
-  })
-  `;
-  total += item.price;
-  cart.push(cartHTML);
-}
-
-function renderCart() {
-  orderSection.innerHTML = handleAddToCart();
-}
-
-renderCart();
