@@ -2,6 +2,12 @@ import { menuArray } from "./data.js";
 
 const menuSection = document.getElementById("menu");
 
+document.addEventListener("click", function (e) {
+  if (e.target.dataset.add) {
+    console.log(e.target.dataset.add);
+  }
+});
+
 function getMenuItems(items) {
   let menuHTML = ``;
   menuArray.forEach(function (item) {
