@@ -51,32 +51,33 @@ header {
   border-bottom: 1px solid #d2d2d2;
 }
 
-.item__product {
+.item-info {
   display: flex;
   gap: 1.5rem;
   margin-bottom: 1rem;
 }
 
-.item__picture {
+.item-img {
   font-size: 60px;
   width: 80px;
 }
 
-.item__name {
+.order-item-name {
   margin-top: 0;
   margin-bottom: 0.5rem;
 }
 
-.item__ingredients {
+.item-description {
   margin: 0;
   color: #8b8b8b;
+  display: block;
 }
 
-.item__price {
+.item-price {
   margin-top: 0.5rem;
 }
 
-.item__add-button {
+.item-btn {
   height: 100%;
   padding: 1rem;
   border-radius: 50%;
