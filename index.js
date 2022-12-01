@@ -34,7 +34,7 @@ render();
 
 function handleOrder(orderID) {
   const orderObj = menuArray.filter(function (item) {
-    return item.id === orderID;
+    return item.id == orderID;
   });
   order.push(orderObj[0]);
   renderOrder();
@@ -42,22 +42,22 @@ function handleOrder(orderID) {
 
 function getOrderItems() {
   let orderHTML = ``;
-  order.forEach(function (item) {
+  order.forEach(function (menu) {
     orderHTML += `
       <div class="order">
         <h1>Your Order</h1>
           <div class="cart-item">
-            <h3>${menu.name}</h3>
+            <h3 class="cart-item-title">${menu.name}</h3>
             <button class="remove-btn">Remove</button>
+            <div>
+              <h3>${menu.price}</h3>
+            </div>
+            <div class="total">
+              <h3 id="total-price">Total:</h3>
+              <h3 id="end-price">${menu.price}</h3>
+            </div>
           </div>
-          <div>
-            <h3>${menu.price}</h3>
-          </div>
-          <div class="total">
-            <h3>Total:</h3>
-            <h3>${menu.price}</h3>
-          </div>
-        </div>
+      </div>
     `;
   });
   return orderHTML;

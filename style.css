@@ -93,6 +93,7 @@ header {
   display: flex;
   justify-content: space-between;
   padding: 5px 0px;
+  align-items: center;
 }
 
 .cart-item-title {
@@ -113,10 +114,14 @@ header {
 }
 
 #total-price {
-  border-top: 3px solid black;
   padding: 25px 0px;
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
+}
+
+#end-price {
+  text-align: right;
 }
 
 .green-btn {
