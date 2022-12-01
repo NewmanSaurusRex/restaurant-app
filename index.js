@@ -1,10 +1,11 @@
 import { menuArray } from "./data.js";
 
 const menuSection = document.getElementById("menu");
+let order = [];
 
 document.addEventListener("click", function (e) {
   if (e.target.dataset.add) {
-    console.log(e.target.dataset.add);
+    handleOrder(e.target.dataset.add);
   }
 });
 
@@ -30,3 +31,40 @@ function render() {
 }
 
 render();
+
+function handleOrder(orderID) {
+  const orderObj = menuArray.filter(function (item) {
+    return item.id === orderID;
+  });
+  order.push(orderObj[0]);
+  renderOrder();
+}
+
+function getOrderItems() {
+  let orderHTML = ``;
+  order.forEach(function (item) {
+    orderHTML += `
+      <div class="order">
+        <h1>Your Order</h1>
+          <div class="cart-item">
+            <h3>${menu.name}</h3>
+            <button class="remove-btn">Remove</button>
+          </div>
+          <div>
+            <h3>${menu.price}</h3>
+          </div>
+          <div class="total">
+            <h3>Total:</h3>
+            <h3>${menu.price}</h3>
+          </div>
+        </div>
+    `;
+  });
+  return orderHTML;
+}
+
+function renderOrder() {
+  document.getElementById("order").innerHTML = getOrderItems();
+}
+
+renderOrder();
