@@ -6,6 +6,8 @@ let order = [];
 document.addEventListener("click", function (e) {
   if (e.target.dataset.add) {
     handleOrder(e.target.dataset.add);
+  } else if (e.target.dataset.remove) {
+    handleRemove(e.target.dataset.remove);
   }
 });
 
@@ -45,18 +47,18 @@ function getOrderItems() {
   order.forEach(function (menu) {
     orderHTML += `
       <div class="order">
-        <h1>Your Order</h1>
+        <h1 class="order-title">Your Order</h1>
           <div class="cart-item">
             <h3 class="cart-item-title">${menu.name}</h3>
-            <button class="remove-btn">Remove</button>
+            <button class="remove-btn" data-remove=${menu.id}>Remove</button>
             <div>
-              <h3>${menu.price}</h3>
+              <h3>$${menu.price}</h3>
             </div>
             <div class="total">
               <h3 id="total-price">Total:</h3>
-              <h3 id="end-price">${menu.price}</h3>
             </div>
           </div>
+          <h3 id="end-price">$${menu.price}</h3>
       </div>
     `;
   });
@@ -68,3 +70,7 @@ function renderOrder() {
 }
 
 renderOrder();
+
+function handleRemove() {
+  console.log("remove item");
+}
