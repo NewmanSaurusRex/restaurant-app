@@ -39,6 +39,7 @@ function handleOrder(orderID) {
     return item.id == orderID;
   })[0];
   order.push(orderObj);
+  getTotal();
   renderOrder();
 }
 
@@ -60,19 +61,32 @@ function getOrderItems() {
             <div>
               <h3>$${menu.price}</h3>
             </div>
-            <div class="total">
-              <h3 id="total-price">Total:</h3>
-            </div>
           </div>
-          <h3 id="end-price">$${menu.price}</h3>
       </div>
     `;
   });
   return orderHTML;
 }
 
+function getTotal() {
+  let totalHTML = ``;
+  let totalPrice = 0;
+  order.forEach(function (item) {
+    totalPrice += item.price;
+  });
+
+  totalHTML = `
+    <div class="total">
+    <h2>Total:</h2>
+    <h2>$${totalPrice}</h2>
+    </div>`;
+
+  return totalHTML;
+}
+
 function renderOrder() {
   document.getElementById("order").innerHTML = getOrderItems();
+  document.getElementById("total").innerHTML = getTotal();
 }
 
 renderOrder();
