@@ -124,7 +124,41 @@ header {
   border-top: 1px solid black;
 }
 
-.green-btn {
+.modal {
+  display: none;
+  border-radius: 8px;
+  background-color: #ffffff;
+  width: 400px;
+  height: 400px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  box-shadow: 0px 0px 4px 2px #8b8b8b;
+}
+
+.modal-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  margin: 0;
+}
+
+input {
+  margin: 1em 0em;
+  padding: 1em 3em;
+  border: 2px solid #8b8b8b;
+}
+
+.pay-btn {
   background-color: #16db99;
   color: white;
   font-size: 16px;

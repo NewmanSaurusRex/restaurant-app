@@ -32,6 +32,33 @@
         <div class="menu" id="menu"></div>
         <div class="order" id="order"></div>
         <div class="total" id="total"></div>
+
+        <div class="modal" id="modal">
+          <div class="modal-inner">
+            <h2 class="modal-header">Enter Card Details</h2>
+            <form id="modal-form">
+              <input
+                type="text"
+                name="fullName"
+                placeholder="Enter your name"
+                required
+              />
+              <input
+                type="number"
+                name="cardNumber"
+                placeholder="Enter your credit card number"
+                required
+              />
+              <input
+                type="number"
+                name="cvv"
+                placeholder="Enter CVV"
+                required
+              />
+              <button class="pay-btn" id="pay-btn">Pay</button>
+            </form>
+          </div>
+        </div>
       </main>
     </div>
     <script src="index.js" type="module"></script>

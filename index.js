@@ -1,6 +1,10 @@
 import { menuArray } from "./data.js";
 
 const menuSection = document.getElementById("menu");
+const payBtn = document.getElementById("pay-btn");
+const modal = document.getElementById("modal");
+const modalForm = document.getElementById("modal-form");
+
 let order = [];
 
 document.addEventListener("click", function (e) {
@@ -9,6 +13,14 @@ document.addEventListener("click", function (e) {
   } else if (e.target.dataset.remove) {
     handleRemove(e.target.dataset.remove);
   }
+});
+
+modalForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const modalFormData = new FormData(modalForm);
+  fullName = modalFormData.get("fullName");
+
+  modal.style.display = "none";
 });
 
 function getMenuItems() {
