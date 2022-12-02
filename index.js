@@ -11,7 +11,7 @@ document.addEventListener("click", function (e) {
   }
 });
 
-function getMenuItems(items) {
+function getMenuItems() {
   let menuHTML = ``;
   menuArray.forEach(function (item) {
     menuHTML += `<div class ="item">
@@ -37,8 +37,13 @@ render();
 function handleOrder(orderID) {
   const orderObj = menuArray.filter(function (item) {
     return item.id == orderID;
-  });
-  order.push(orderObj[0]);
+  })[0];
+  order.push(orderObj);
+  renderOrder();
+}
+
+function handleRemove(removeIndex) {
+  order.splice(removeIndex, 1);
   renderOrder();
 }
 
@@ -47,10 +52,11 @@ function getOrderItems() {
   order.forEach(function (menu) {
     orderHTML += `
       <div class="order">
-        <h1 class="order-title">Your Order</h1>
           <div class="cart-item">
             <h3 class="cart-item-title">${menu.name}</h3>
-            <button class="remove-btn" data-remove=${menu.id}>Remove</button>
+            <button class="remove-btn" data-remove=${order.indexOf(
+              menu
+            )}>Remove</button>
             <div>
               <h3>$${menu.price}</h3>
             </div>
@@ -70,7 +76,3 @@ function renderOrder() {
 }
 
 renderOrder();
-
-function handleRemove() {
-  console.log("remove item");
-}
